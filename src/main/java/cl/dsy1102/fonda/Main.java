@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        BebidaSinAlcohol sinAlcohol = new BebidaSinAlcohol(95,"Chicha", 1000,60);
+
 
         // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
         // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.

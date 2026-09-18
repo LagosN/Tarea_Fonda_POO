@@ -33,6 +33,17 @@ public class GestorFonda   {
         return null;
     }
 
+    public void mostrarBebidas(){
+        System.out.println("Lista de bebidas");
+        for (Bebida b:bebidas){
+            /* No puedo usar metodo de isCertificada usar   para entregar un dato u otro// Si es alcoholica o no */
+            if (b.getClass())
+            System.out.println("Nombre;" + b.getNombre() + "Valor $: " +3500);
+            else if (System.out.println("Nombre;" + b.getNombre() + "Valor $: " +2000););
+
+        }
+    }
+
     public  void vender(String nombre, int unidades){
         /* Quiero poder agregar el nombre buscado y que luego pida las cantidades, esto debe quedar en un "carrito"
         otra lista ? */
