@@ -2,36 +2,18 @@ package cl.dsy1102.fonda;
 
 import java.util.ArrayList;
 
-public class GestorFonda extends  BebidaSinAlcohol  {
+public class GestorFonda   {
     private ArrayList<Bebida> bebidas ;
 
     public GestorFonda(ArrayList<Bebida> bebidas){
-        super(95,"Chicha", 1000,60);
-
         this.bebidas = new ArrayList<>();
-        this.bebidas.add(new Bebida("Mote con Huesillo", 400, 50) {
-            @Override
-            public double calcularPrecio() {
-                return 0;
-            }
+        bebidas.add(new BebidaSinAlcohol(95,"Chicha",1000,60));
+        bebidas.add(new BebidaSinAlcohol(70,"Mote con Huesillo",400, 50));
+        bebidas.add(new BebidaAlcoholica("Chicha",1000,40,3,12.0, false,true));
+        bebidas.add(new BebidaAlcoholica("Pisco Sour",500,25,3,18,true,true));
 
-            @Override
-            public String obtenerDetalle() {
-                return "";
-            }
 
-        });
-        this.bebidas.add(new Bebida("Chicha", 1000, 40) {
-            @Override
-            public double calcularPrecio() {
-                return 0;
-            }
 
-            @Override
-            public String obtenerDetalle() {
-                return "";
-            }
-        }
 
     }
 
