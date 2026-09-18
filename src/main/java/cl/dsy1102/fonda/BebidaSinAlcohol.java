@@ -1,6 +1,6 @@
 package cl.dsy1102.fonda;
 
-public class BebidaSinAlcohol extends Bebida implements ConsumoRes{
+public class BebidaSinAlcohol extends Bebida {
     int azucarPorLitro;
 
     public BebidaSinAlcohol(int azucarPorLitro, String nombre, int volumenMl, int stock){
@@ -26,18 +26,5 @@ public class BebidaSinAlcohol extends Bebida implements ConsumoRes{
         return "";
     }
 
-    @Override
-    public boolean tieneVentaRestringida() {
-        return false;
-    }
 
-    @Override
-    public void restringirVenta() {
-
-    }
-
-    @Override
-    public boolean superaLimite(int unidades) {
-        return false;
-    }
 }

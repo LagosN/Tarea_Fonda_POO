@@ -1,5 +1,7 @@
 package cl.dsy1102.fonda;
 
+import java.util.ArrayList;
+
 /**
  * Punto de entrada de la Tarea Fiestas Patrias - Fonda San Belarmino.
  *
@@ -10,6 +12,8 @@ package cl.dsy1102.fonda;
 public class Main {
 
     public static void main(String[] args) {
+        BebidaSinAlcohol sinAlcohol = new BebidaSinAlcohol(95,"Chicha", 1000,60);
+
         // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
         // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.
         // TODO 3: registrarlas todas en el gestor.
