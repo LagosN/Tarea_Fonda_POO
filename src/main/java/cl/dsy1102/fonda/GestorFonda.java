@@ -1,4 +1,4 @@
-package cl.dsy1102.fonda;
+package main.java.cl.dsy1102.fonda;
 
 import java.util.ArrayList;
 
