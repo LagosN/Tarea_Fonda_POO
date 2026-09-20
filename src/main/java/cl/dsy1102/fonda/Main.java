@@ -1,6 +1,7 @@
-package main.java.cl.dsy1102.fonda;
+package cl.dsy1102.fonda;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Punto de entrada de la Tarea Fiestas Patrias - Fonda San Belarmino.
@@ -12,6 +13,16 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+
+        /* Por que no puedo llamar a metodos de gestor fonda ? */
+        GestorFonda nuevaFonda = new GestorFonda();
+        ArrayList<String> listaObtenida = nuevaFonda.ge
+
+    }
+
+
+
+
 
 
         // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.

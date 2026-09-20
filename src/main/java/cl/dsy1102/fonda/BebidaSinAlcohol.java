@@ -1,4 +1,4 @@
-package main.java.cl.dsy1102.fonda;
+package cl.dsy1102.fonda;
 
 public class BebidaSinAlcohol extends Bebida {
     int azucarPorLitro;

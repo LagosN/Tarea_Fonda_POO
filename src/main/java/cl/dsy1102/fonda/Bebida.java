@@ -1,14 +1,16 @@
-package main.java.cl.dsy1102.fonda;
+package cl.dsy1102.fonda;
 
 public abstract class Bebida {
     private String nombre;
     private int volumenMl;
     private int stock;
 
-    public Bebida(String nombre, int volumenMl, int stock){
+
+    public Bebida(String nombre, int volumenMl, int stock, int valor){
         this.nombre = nombre;
         this.volumenMl = volumenMl;
         this.stock = stock;
+
     }
 
     public String getNombre() {
