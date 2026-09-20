@@ -16,7 +16,7 @@ public class Main {
 
         /* Por que no puedo llamar a metodos de gestor fonda ? */
         GestorFonda nuevaFonda = new GestorFonda();
-        ArrayList<String> listaObtenida = nuevaFonda.ge
+        ArrayList<String> listaObtenida = nuevaFonda.getClass();
 
     }
 

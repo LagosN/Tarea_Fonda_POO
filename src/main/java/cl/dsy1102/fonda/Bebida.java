@@ -6,7 +6,7 @@ public abstract class Bebida {
     private int stock;
 
 
-    public Bebida(String nombre, int volumenMl, int stock, int valor){
+    public Bebida(String nombre, int volumenMl, int stock){
         this.nombre = nombre;
         this.volumenMl = volumenMl;
         this.stock = stock;

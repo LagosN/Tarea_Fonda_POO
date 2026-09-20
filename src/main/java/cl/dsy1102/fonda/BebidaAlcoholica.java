@@ -1,27 +1,21 @@
 package cl.dsy1102.fonda;
 
 public class BebidaAlcoholica extends Bebida implements  ConsumoRes {
-    protected int limiteUnidadesPorCliente;
+
     private double gradosAlcohol;
     private boolean certificad;
     private  boolean ventaRestringida;
 
     public BebidaAlcoholica(String nombre, int volumenMl, int stock,int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificad, boolean ventaRestringida){
         super(nombre, volumenMl,stock);
-        this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
+
         this.gradosAlcohol = gradosAlcohol;
         this.certificad = certificad;
         this.ventaRestringida = ventaRestringida;
 
     }
 
-    public int getLimiteUnidadesPorCliente() {
-        return limiteUnidadesPorCliente;
-    }
 
-    public void setLimiteUnidadesPorCliente(int limiteUnidadesPorCliente) {
-        this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
-    }
 
     public double getGradosAlcohol() {
         return gradosAlcohol;
@@ -65,11 +59,14 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoRes {
 
     @Override
     public void restringirVenta() {
+        /*Llamar al metetodo setVentaRestringida? */
+        boolean Ajuste = setVentaRestringida(boolean nuevaVentaRestringida);
 
     }
 
     @Override
     public boolean superaLimite(int unidades) {
+
         return false;
     }
 }
