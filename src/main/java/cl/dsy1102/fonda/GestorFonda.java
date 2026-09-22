@@ -56,7 +56,8 @@ public class GestorFonda   {
     public  void vender(String nombreBebida, int unidades) {
 
         for (Bebida bebida:bebidas){
-            if (bebida.getNombre().equalsIgnoreCase(nombreBebida)){
+            /* Uso de instanceof ? */
+            if (bebida.getNombre().equalsIgnoreCase(nombreBebida) || unidades < bebida.){
                 System.out.println(("Precio de venta "+ bebida.getNombre() + ": $" +bebida.calcularPrecio()));
                 return;
             }

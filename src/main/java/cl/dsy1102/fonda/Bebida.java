@@ -41,8 +41,7 @@ public abstract class Bebida {
     /*  Por que no sale en azul ? */
     public abstract String obtenerDetalle();
 
-    /* toString solicita que en los argumentos este nombre y cantidad de ML,
-     se puede dejar con void y que entregue por consola el valor como string */
+
     public String toString(){
         String respuesta =  super.toString();
         respuesta = respuesta + <this.nombre,this.volumenMl,this.stock>;

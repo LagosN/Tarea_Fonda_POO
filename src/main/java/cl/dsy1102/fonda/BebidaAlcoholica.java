@@ -51,7 +51,7 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     public double calcularPrecio() {
         int precio;
 
-        if (certificada ){/* como usar el 2000*1.10 ? */
+        if (this.certificada ){
             precio = 3500;
         }else {
             precio = (int) (3500*1.2);}
@@ -70,6 +70,7 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     @Override
     public String toString(){
         String respuesta =  super.toString();
+        /* Problemas con */
         respuesta = respuesta + <nombre,volumenMl,stock>
         return  (respuesta);
 
