@@ -1,9 +1,9 @@
 package cl.dsy1102.fonda;
 
 public abstract class Bebida {
-    private String nombre;
-    private int volumenMl;
-    private int stock;
+    protected String nombre;
+    protected int volumenMl;
+    protected int stock;
 
 
     public Bebida(String nombre, int volumenMl, int stock){
@@ -36,17 +36,16 @@ public abstract class Bebida {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    public abstract double calcularPrecio();
 
-    public abstract String obtenerDetalle(
-            System.out.println
-    );
+    public abstract double calcularPrecio();
+    /*  Por que no sale en azul ? */
+    public abstract String obtenerDetalle();
 
     /* toString solicita que en los argumentos este nombre y cantidad de ML,
      se puede dejar con void y que entregue por consola el valor como string */
     public String toString(){
         String respuesta =  super.toString();
-        respuesta = respuesta + <nombre,volumenMl,stock>;
+        respuesta = respuesta + <this.nombre,this.volumenMl,this.stock>
         return  (respuesta);
 
 

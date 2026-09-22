@@ -1,21 +1,19 @@
 package cl.dsy1102.fonda;
 
-public class BebidaAlcoholica extends Bebida implements  ConsumoRes {
-
+public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
+    private static final int cantidadMaxima = 3;
     private double gradosAlcohol;
-    private boolean certificad;
+    private boolean certificada;
     private  boolean ventaRestringida;
 
-    public BebidaAlcoholica(String nombre, int volumenMl, int stock,int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificad, boolean ventaRestringida){
+    public BebidaAlcoholica(String nombre, int volumenMl, int stock,int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
         super(nombre, volumenMl,stock);
 
         this.gradosAlcohol = gradosAlcohol;
-        this.certificad = certificad;
+        this.certificada = certificada;
         this.ventaRestringida = ventaRestringida;
 
     }
-
-
 
     public double getGradosAlcohol() {
         return gradosAlcohol;
@@ -34,45 +32,51 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoRes {
     }
 
     public boolean isCertificad() {
-        return certificad;
+        return certificada;
     }
 
-    public void setCertificad(boolean certificad) {
-        this.certificad = certificad;
+    public void setCertificada(boolean certificada) {
+        this.certificada = certificada;
     }
 
 
-    @Override
-    public double calcularPrecio() {
-        return 0;
-    }
-
-    @Override
-    public String obtenerDetalle() {
-        return "";
-    }
-
-    @Override
-    public boolean tieneVentaRestringida() {
-        return false;
-    }
 
     @Override
     public void restringirVenta() {
         /*Llamar al método setVentaRestringida? */
-        boolean Ajuste = setVentaRestringida(boolean nuevaVentaRestringida);
+        boolean Ajuste ;
 
     }
+    @Override
+    public double calcularPrecio() {
+        int precio;
+
+        if (certificada ){/* como usar el 2000*1.10 ? */
+            precio = 3500;
+        }else {
+            precio = (int) (3500*1.2);}
+        return precio;
+    }
+
+
+    @Override
+    public String obtenerDetalle() {
+        String respuestaDetalle;
+        respuestaDetalle= "Tipos de Bebidas Alcoholicas | Nombre: "+getNombre() +
+                "|Volumen: " + getVolumenMl() + "| Stock:" + getStock() + "| Grados de Alcohol: °"+ this.gradosAlcohol + "| Certificada: "  ;
+        return respuestaDetalle;
+    } /* Como imprimir boleanos? usando if  ? */
 
     @Override
     public String toString(){
-    String respuesta = super.toString()    ;
-    respuesta ? respuesta + "La bebida" +this.getNombre() +
+        String respuesta =  super.toString();
+        respuesta = respuesta + <nombre,volumenMl,stock>
+        return  (respuesta);
 
     }
     @Override
     public boolean superaLimite(int unidades) {
 
-        return false;
+        return unidades > cantidadMaxima;
     }
 }

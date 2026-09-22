@@ -30,9 +30,9 @@ public class GestorFonda   {
         for(Bebida bebida : this.bebidas){
             if (bebida.getNombre().equals(nombre)){
                 System.out.println(bebida.toString());
-                return  e;
+                return  bebida;
                 /*No puedo acceder a metodos de las sub clases */
-                System.out.println("Tipo:" +e.getClass()+ "Nombre:" e.getNombre() +"Volumen"+e.getVolumenMl() + "Stock:" +e.getStock()+ "Grados:" e.get)
+
             }
         }
         System.out.println("Nombre no encontrado");
