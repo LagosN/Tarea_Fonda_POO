@@ -31,9 +31,11 @@ public class GestorFonda   {
     public Bebida buscarPorNombre(String nombre){
         for(Bebida bebida : this.bebidas){
             if (bebida.getNombre().equals(nombre)){
+                /* Por que aca me dice que es un redundancia ? pero en el siguente toString no ? */
                 System.out.println(bebida.toString());
+                /* Usar ej bebida. muestra tantos metodos de con y Sin alcohol */
                 return  bebida;
-                /*No puedo acceder a metodos de las sub clases */
+
 
             }
         }
@@ -46,29 +48,25 @@ public class GestorFonda   {
         System.out.println("Lista de bebidas");
         for (Bebida bebida:bebidas){
             /* No puedo usar metodo de isCertificada usar   para entregar un dato u otro// Si es alcoholica o no */
-            System.out.println("Nombre;" + bebida.getNombre());
+            System.out.println("Nombre;" + bebida.toString());
 
         }
     }
 
+    public  void vender(String nombreBebida, int unidades) {
 
-    public int totalBebidas(){
-        return  bebidas.size();
-    }
-
-
-    public  int vender() {
+        for (Bebida bebida:bebidas){
+            if (bebida.getNombre().equalsIgnoreCase(nombreBebida)){
+                System.out.println(("Precio de venta "+ bebida.getNombre() + ": $" +bebida.calcularPrecio()));
+                return;
+            }
         /* Quiero poder agregar el nombre buscado y que luego pida las cantidades, esto debe quedar en un "carrito"
         otra lista ? */
         /*Recorrer lista que entregue posicion y nombre */
 
-        Scanner scanner = new Scanner((System.in);
-        System.out.println("Ingresa una opcion:");
-        int eleccion = scanner.nextInt();
-
-        Bebida encontrada = bebidas.get(eleccion).get
 
         }
+        System.out.println("Bebida no encontrada");
     }
 
 
