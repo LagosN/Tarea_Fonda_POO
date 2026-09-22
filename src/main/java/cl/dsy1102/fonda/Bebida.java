@@ -45,7 +45,7 @@ public abstract class Bebida {
      se puede dejar con void y que entregue por consola el valor como string */
     public String toString(){
         String respuesta =  super.toString();
-        respuesta = respuesta + <this.nombre,this.volumenMl,this.stock>
+        respuesta = respuesta + <this.nombre,this.volumenMl,this.stock>;
         return  (respuesta);
 
 

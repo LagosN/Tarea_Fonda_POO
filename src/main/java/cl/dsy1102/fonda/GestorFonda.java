@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestorFonda   {
-    private ArrayList<Bebida> bebidas ;
+    private  ArrayList<Bebida> bebidas = new ArrayList<>() ;
 
 
     public GestorFonda(ArrayList<Bebida> bebidas){
@@ -19,9 +19,11 @@ public class GestorFonda   {
 
 
     }
+    public  GestorFonda(){};
 
-    public void agregarBebida(Bebida e){
-        this.bebidas.add(e);
+    public void agregarBebida(Bebida bebida){
+
+        this.bebidas.add(bebida);
         System.out.println("Bebida agregada correctamente");
 
     }
@@ -39,25 +41,17 @@ public class GestorFonda   {
         return null;
     }
 
+
     public void mostrarBebidas(){
         System.out.println("Lista de bebidas");
-        for (Bebida b:bebidas){
+        for (Bebida bebida:bebidas){
             /* No puedo usar metodo de isCertificada usar   para entregar un dato u otro// Si es alcoholica o no */
-            System.out.println("Nombre;" + b.getNombre());
+            System.out.println("Nombre;" + bebida.getNombre());
 
         }
     }
 
-    public Bebida obtenerPosicion(int posicionBebida){
-        int indice = posicionBebida -1;
-        if (indice <= 0 || indice < bebidas.size() ) {
-            return bebidas.get(indice);
-        }
-        /*Si no existe la posicion entregada */
-        return  null;
 
-
-    }
     public int totalBebidas(){
         return  bebidas.size();
     }

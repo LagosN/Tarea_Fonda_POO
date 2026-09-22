@@ -13,12 +13,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        ArrayList<Bebida> bebida = new ArrayList<>();
         Bebida chicha = new BebidaSinAlcohol(95,"Chicha",1000,60));
         Bebida MoteConHuesillo = new BebidaSinAlcohol(70,"Mote con Huesillo",400, 50));
         Bebida chichaSinAlcohol = new BebidaAlcoholica("Chicha",1000,40,3,12.0, false,true));
         Bebida piscoSour = new BebidaAlcoholica("Pisco Sour",500,25,3,18,true,true));
 
-        ArrayList<Bebida> bebida = new ArrayList<>();
+
 
 
     }
