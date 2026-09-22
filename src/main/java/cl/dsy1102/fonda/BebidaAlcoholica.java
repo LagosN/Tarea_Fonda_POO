@@ -59,11 +59,17 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoRes {
 
     @Override
     public void restringirVenta() {
-        /*Llamar al metetodo setVentaRestringida? */
+        /*Llamar al método setVentaRestringida? */
         boolean Ajuste = setVentaRestringida(boolean nuevaVentaRestringida);
 
     }
 
+    @Override
+    public String toString(){
+    String respuesta = super.toString()    ;
+    respuesta ? respuesta + "La bebida" +this.getNombre() +
+
+    }
     @Override
     public boolean superaLimite(int unidades) {
 

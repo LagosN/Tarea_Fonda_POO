@@ -8,7 +8,7 @@ public class GestorFonda   {
 
 
     public GestorFonda(ArrayList<Bebida> bebidas){
-        this.bebidas = new ArrayList<>();
+
 
         bebidas.add(new BebidaSinAlcohol(95,"Chicha",1000,60));
         bebidas.add(new BebidaSinAlcohol(70,"Mote con Huesillo",400, 50));
@@ -27,8 +27,9 @@ public class GestorFonda   {
     }
 
     public Bebida buscarPorNombre(String nombre){
-        for(Bebida e : this.bebidas){
-            if (e.getNombre().equals(nombre)){
+        for(Bebida bebida : this.bebidas){
+            if (bebida.getNombre().equals(nombre)){
+                System.out.println(bebida.toString());
                 return  e;
                 /*No puedo acceder a metodos de las sub clases */
                 System.out.println("Tipo:" +e.getClass()+ "Nombre:" e.getNombre() +"Volumen"+e.getVolumenMl() + "Stock:" +e.getStock()+ "Grados:" e.get)
@@ -42,7 +43,7 @@ public class GestorFonda   {
         System.out.println("Lista de bebidas");
         for (Bebida b:bebidas){
             /* No puedo usar metodo de isCertificada usar   para entregar un dato u otro// Si es alcoholica o no */
-            System.out.println("Nombre;" + b.getNombre() );
+            System.out.println("Nombre;" + b.getNombre());
 
         }
     }
@@ -60,6 +61,7 @@ public class GestorFonda   {
     public int totalBebidas(){
         return  bebidas.size();
     }
+
 
     public  int vender() {
         /* Quiero poder agregar el nombre buscado y que luego pida las cantidades, esto debe quedar en un "carrito"

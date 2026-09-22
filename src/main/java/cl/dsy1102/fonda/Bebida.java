@@ -38,11 +38,19 @@ public abstract class Bebida {
     }
     public abstract double calcularPrecio();
 
-    public abstract String obtenerDetalle();
+    public abstract String obtenerDetalle(
+            System.out.println
+    );
 
     /* toString solicita que en los argumentos este nombre y cantidad de ML,
      se puede dejar con void y que entregue por consola el valor como string */
     public String toString(){
-        return "";
+        String respuesta =  super.toString();
+        respuesta = respuesta + <nombre,volumenMl,stock>;
+        return  (respuesta);
+
+
+
+
     }
 }

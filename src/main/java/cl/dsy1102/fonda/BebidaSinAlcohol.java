@@ -23,6 +23,8 @@ public class BebidaSinAlcohol extends Bebida {
 
     @Override
     public String obtenerDetalle() {
+        String respuesta = super.obtenerDetalle();
+
         return "";
     }
 
