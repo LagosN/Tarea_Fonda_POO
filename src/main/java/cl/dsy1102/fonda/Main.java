@@ -14,10 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
         GestorFonda bebidas = new GestorFonda();
-        Bebida chicha = new BebidaSinAlcohol(95,"Chicha",1000,60));
-        Bebida moteConHuesillo = new BebidaSinAlcohol(70,"Mote con Huesillo",400, 50));
-        Bebida chichaSinAlcohol = new BebidaAlcoholica("Chicha",1000,40,3,12.0, false,true));
-        Bebida piscoSour = new BebidaAlcoholica("Pisco Sour",500,25,3,18,true,true));
+        Bebida chicha = new BebidaSinAlcohol(95,"Chicha",1000,60);
+        Bebida moteConHuesillo = new BebidaSinAlcohol(70,"Mote con Huesillo",400, 50);
+        Bebida chichaSinAlcohol = new BebidaAlcoholica("Chicha",1000,40,3,12.0, false,true);
+        Bebida piscoSour = new BebidaAlcoholica("Pisco Sour",500,25,3,18,true,true);
 
 
     /*Registrar bebidas */
@@ -25,6 +25,8 @@ public class Main {
     bebidas.agregarBebida(moteConHuesillo);
     bebidas.agregarBebida(chichaSinAlcohol);
     bebidas.agregarBebida(piscoSour);
+
+    ((ConsumoResponsable) chicha).restringirVenta();
 
     bebidas.mostrarBebidas();
 
@@ -44,6 +46,6 @@ public class Main {
         // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
         // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
 
-        System.out.println("Proyecto listo. Comienza por la clase Bebida.");
+
     }
-}
+

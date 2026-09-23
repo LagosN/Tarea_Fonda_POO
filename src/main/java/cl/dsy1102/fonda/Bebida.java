@@ -30,7 +30,7 @@ public abstract class Bebida {
         return volumenMl;
     }
 
-    public void setVolumenMl(int volumenMl) {
+    public void setVolumenMl(int volumenMl) throws  IllegalArgumentException {
         if (volumenMl > 100 && volumenMl < 3000) {
             this.volumenMl = volumenMl;
         }else{

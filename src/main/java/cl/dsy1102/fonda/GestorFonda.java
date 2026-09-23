@@ -57,7 +57,7 @@ public class GestorFonda   {
 
         for (Bebida bebida:bebidas){
             /* Uso de instanceof ? */
-            if (bebida.getNombre().equalsIgnoreCase(nombreBebida) || unidades < bebida.){
+            if (bebida.getNombre().equalsIgnoreCase(nombreBebida) ||unidades < bebida.getStock()){
                 System.out.println(("Precio de venta "+ bebida.getNombre() + ": $" +bebida.calcularPrecio()));
                 return;
             }
