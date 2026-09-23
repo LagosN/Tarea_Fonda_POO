@@ -40,7 +40,7 @@ public class BebidaSinAlcohol extends Bebida {
     @Override
     public String toString(){
         String respuesta =  super.toString();
-        respuesta = respuesta + <nombre,volumenMl,stock>
+        respuesta = respuesta + "Nombre: "+ nombre + "Volumen:" +volumenMl +  "Stock:"+ stock;
         return  (respuesta);
 
     }

@@ -44,7 +44,7 @@ public abstract class Bebida {
 
     public String toString(){
         String respuesta =  super.toString();
-        respuesta = respuesta + <this.nombre,this.volumenMl,this.stock>;
+        respuesta = respuesta + "Nombre: "+ this.nombre + "Volumen:" +this.volumenMl +  "Stock:"+ this.stock;
         return  (respuesta);
 
 

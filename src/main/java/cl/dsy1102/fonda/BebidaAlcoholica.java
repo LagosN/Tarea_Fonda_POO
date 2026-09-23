@@ -71,7 +71,7 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     public String toString(){
         String respuesta =  super.toString();
         /* Problemas con */
-        respuesta = respuesta + <nombre,volumenMl,stock>
+        respuesta = respuesta + "Nombre: "+ nombre + "Volumen:" +volumenMl +  "Stock:"+ stock;
         return  (respuesta);
 
     }
