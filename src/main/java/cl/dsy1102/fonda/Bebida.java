@@ -18,7 +18,12 @@ public abstract class Bebida {
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
+        if (nombre == null){
+            throw  new IllegalArgumentException("EL nombre no puede quedar en blanco");
+        }
+
     }
 
     public int getVolumenMl() {
@@ -26,7 +31,13 @@ public abstract class Bebida {
     }
 
     public void setVolumenMl(int volumenMl) {
-        this.volumenMl = volumenMl;
+        if (volumenMl > 100 && volumenMl < 3000) {
+            this.volumenMl = volumenMl;
+        }else{
+            throw  new IllegalArgumentException("Solo puedes agregar un volumen entre 100 y 3000");
+
+        }
+
     }
 
     public int getStock() {
@@ -34,11 +45,16 @@ public abstract class Bebida {
     }
 
     public void setStock(int stock) {
-        this.stock = stock;
+        if (stock > 0) {
+            this.stock = stock;
+        }else{
+            throw  new IllegalArgumentException("Debes agregar un numero mayor a 0");
+        }
     }
 
     public abstract double calcularPrecio();
-    /*  Por que no sale en azul ? */
+
+
     public abstract String obtenerDetalle();
 
 

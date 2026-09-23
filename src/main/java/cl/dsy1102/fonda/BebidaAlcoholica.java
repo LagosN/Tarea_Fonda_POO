@@ -20,7 +20,14 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     }
 
     public void setGradosAlcohol(double gradosAlcohol) {
-        this.gradosAlcohol = gradosAlcohol;
+        if (gradosAlcohol > 0.5 && gradosAlcohol < 45) {
+            this.gradosAlcohol = gradosAlcohol;
+        }else{
+            throw  new IllegalArgumentException("Solo puedes agregar un volumen entre 100 y 3000");
+
+        }
+
+
     }
 
     public boolean isVentaRestringida() {
