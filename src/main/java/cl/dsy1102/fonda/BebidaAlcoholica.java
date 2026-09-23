@@ -47,11 +47,16 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     }
 
 
+    @Override
+    public boolean tieneVentaRestringida() {
+        return false;
+    }
 
     @Override
     public void restringirVenta() {
         /*Llamar al método setVentaRestringida? */
-        boolean Ajuste ;
+
+
 
     }
     @Override
@@ -77,8 +82,8 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     @Override
     public String toString(){
         String respuesta =  super.toString();
-        /* Problemas con */
-        respuesta = respuesta + "Nombre: "+ nombre + "Volumen:" +volumenMl +  "Stock:"+ stock;
+        /* Problemas con uso de super. nombre ?  */
+        respuesta = respuesta + "Nombre: "+ super.nombre + "Volumen:" + volumenMl +  "Stock:"+ stock;
         return  (respuesta);
 
     }
