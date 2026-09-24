@@ -17,11 +17,13 @@ public abstract class Bebida {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) throws  IllegalArgumentException {
 
-        this.nombre = nombre;
-        if (nombre == null){
-            throw  new IllegalArgumentException("EL nombre no puede quedar en blanco");
+
+        if (nombre == null || nombre.isBlank() ){
+            throw  new IllegalArgumentException("EL nombre no puede quedar en blanco ni vacio");
+        }else {
+            this.nombre = nombre;
         }
 
     }
@@ -31,12 +33,11 @@ public abstract class Bebida {
     }
 
     public void setVolumenMl(int volumenMl) throws  IllegalArgumentException {
-        if (volumenMl > 100 && volumenMl < 3000) {
-            this.volumenMl = volumenMl;
-        }else{
+        if ((volumenMl >= 100) && (volumenMl <= 3000)) {
             throw  new IllegalArgumentException("Solo puedes agregar un volumen entre 100 y 3000");
 
         }
+        this.volumenMl = volumenMl;
 
     }
 
@@ -44,12 +45,14 @@ public abstract class Bebida {
         return stock;
     }
 
-    public void setStock(int stock) {
-        if (stock > 0) {
-            this.stock = stock;
-        }else{
+    public void setStock(int stock) throws  IllegalArgumentException {
+        if (stock < 0) {
             throw  new IllegalArgumentException("Debes agregar un numero mayor a 0");
+
         }
+            this.stock = stock;
+
+
     }
 
     public abstract double calcularPrecio();
@@ -60,7 +63,7 @@ public abstract class Bebida {
 
     public String toString(){
         String respuesta =  super.toString();
-        respuesta = respuesta + "Nombre: "+ this.nombre + "Volumen:" +this.volumenMl +  "Stock:"+ this.stock;
+        respuesta = respuesta + "Nombre: " + this.nombre + "Volumen:" + this.volumenMl;
         return  (respuesta);
 
 

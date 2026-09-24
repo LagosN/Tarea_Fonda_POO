@@ -6,7 +6,7 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     private boolean certificada;
     private  boolean ventaRestringida;
 
-    public BebidaAlcoholica(String nombre, int volumenMl, int stock,int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
+    public BebidaAlcoholica(String nombre, int volumenMl, int stock, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
         super(nombre, volumenMl,stock);
 
         this.gradosAlcohol = gradosAlcohol;
@@ -20,12 +20,12 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     }
 
     public void setGradosAlcohol(double gradosAlcohol) {
-        if (gradosAlcohol > 0.5 && gradosAlcohol < 45) {
-            this.gradosAlcohol = gradosAlcohol;
-        }else{
-            throw  new IllegalArgumentException("Solo puedes agregar un volumen entre 100 y 3000");
+        if (gradosAlcohol < 0.5 || gradosAlcohol > 45) {
+            throw  new IllegalArgumentException("Solo puedes agregar 0.5 hasta 45 grados de alcohol");
 
         }
+
+        this.gradosAlcohol = gradosAlcohol;
 
 
     }
@@ -38,7 +38,7 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
         this.ventaRestringida = ventaRestringida;
     }
 
-    public boolean isCertificad() {
+    public boolean isCertificada() {
         return certificada;
     }
 
@@ -49,11 +49,14 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
 
     @Override
     public boolean tieneVentaRestringida() {
-        return false;
+
+        return ventaRestringida;
     }
 
     @Override
     public void restringirVenta() {
+        this.ventaRestringida = true;
+        System.out.println("Restriccion actualizada");
         /*Llamar al método setVentaRestringida? */
 
 
@@ -74,22 +77,24 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
     @Override
     public String obtenerDetalle() {
         String respuestaDetalle;
-        respuestaDetalle= "Tipos de Bebidas Alcoholicas | Nombre: "+getNombre() +
-                "|Volumen: " + getVolumenMl() + "| Stock:" + getStock() + "| Grados de Alcohol: °"+ this.gradosAlcohol + "| Certificada: "  ;
+                respuestaDetalle=
+                "Tipos de Bebidas Alcoholicas | Nombre: "+getNombre() +
+                "|Volumen: " + getVolumenMl() + "| Stock:" + getStock() +
+                        "| Grados de Alcohol: °"+ this.gradosAlcohol +
+                "| Certificada: " + this.certificada + "|Venta Restringida: " + this.ventaRestringida
+        +  " Precio: " +  this.calcularPrecio() ;
         return respuestaDetalle;
-    } /* Como imprimir boleanos? usando if  ? */
+    }
 
     @Override
     public String toString(){
-        String respuesta =  super.toString();
-        /* Problemas con uso de super. nombre ?  */
-        respuesta = respuesta + "Nombre: "+ super.nombre + "Volumen:" + volumenMl +  "Stock:"+ stock;
-        return  (respuesta);
+        return  super.toString();
 
     }
     @Override
     public boolean superaLimite(int unidades) {
+        return  (unidades > cantidadMaxima) && (unidades > stock);
 
-        return unidades > cantidadMaxima;
+
     }
 }
