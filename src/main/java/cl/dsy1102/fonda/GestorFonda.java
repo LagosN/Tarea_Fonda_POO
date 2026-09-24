@@ -11,12 +11,14 @@ public class GestorFonda {
 
     public GestorFonda(List<Bebida> bebidas) {
         if (bebidas != null) {
-            this.bebidas.addAll(bebidas);
+            for (Bebida bebida:bebidas){
+                this.bebidas.add(bebida);
+            }
         }
     }
 
     public void agregarBebida(Bebida bebida) {
-        if (bebida == null) {
+        if (bebida == null ) {
             throw new IllegalArgumentException("La bebida no puede ser nula");
         }
         bebidas.add(bebida);
@@ -29,7 +31,7 @@ public class GestorFonda {
         if (nombre == null) {
             return coincidencias;
         }
-        for (Bebida bebida : bebidas) {
+        for (Bebida bebida : this.bebidas) {
             if (bebida.getNombre().equalsIgnoreCase(nombre)) {
                 coincidencias.add(bebida);
             }
@@ -58,28 +60,22 @@ public class GestorFonda {
                 continue;
             }
             if (unidades > bebida.getStock()) {
-                System.out.println("Venta rechazada: stock insuficiente para "
-                        + bebida.getNombre() + ".");
+                System.out.println("Venta rechazada: stock insuficiente para "  + bebida.getNombre() + ".");
                 return;
             }
             if (bebida instanceof ConsumoResponsable consumo) {
                 if (consumo.tieneVentaRestringida()) {
-                    System.out.println("Venta rechazada: " + bebida.getNombre()
-                            + " tiene la venta restringida.");
+                    System.out.println("Venta rechazada: " + bebida.getNombre()  + " tiene la venta restringida.");
                     return;
                 }
                 if (consumo.superaLimite(unidades)) {
-                    System.out.println("Venta rechazada: " + unidades + " unidades de "
-                            + bebida.getNombre() + " superan el limite de "
-                            + BebidaAlcoholica.LIMITE_UNIDADES_POR_CLIENTE
-                            + " por cliente.");
+                    System.out.println("Venta rechazada: " + unidades + " unidades de "  + bebida.getNombre() + " superan el limite de "  + BebidaAlcoholica.LIMITE_UNIDADES_POR_CLIENTE  + " por cliente.");
                     return;
                 }
             }
             int total = (int) (bebida.calcularPrecio() * unidades);
             bebida.setStock(bebida.getStock() - unidades);
-            System.out.println("Venta autorizada: " + unidades + " x "
-                    + bebida.getNombre() + " | Total: $" + total);
+            System.out.println("Venta autorizada: " + unidades + " x "  + bebida.getNombre() + " | Total: $" + total);
             return;
         }
         System.out.println("Bebida no encontrada");

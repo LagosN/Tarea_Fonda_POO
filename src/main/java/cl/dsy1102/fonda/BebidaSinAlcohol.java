@@ -18,12 +18,14 @@ public class BebidaSinAlcohol extends Bebida {
 
     @Override
     public double calcularPrecio() {
-        int precio;
+
+        double precio;
 
         if (azucarPorLitro > 80){
             precio = (int) (2000*1.10);
-        }else {
-            precio = 2000;}
+            return precio;
+        }
+        precio = 2000;
         return precio;
     }
 
