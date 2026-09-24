@@ -1,17 +1,13 @@
 package cl.dsy1102.fonda;
 
 public class BebidaSinAlcohol extends Bebida {
-    private int  azucarPorLitro;
+    private int azucarPorLitro;
 
-
-    /*Constructor */
-    public BebidaSinAlcohol(int azucarPorLitro, String nombre, int volumenMl, int stock){
+    public BebidaSinAlcohol(String nombre, int volumenMl, int stock, int azucarPorLitro) {
         super(nombre, volumenMl, stock);
         this.azucarPorLitro = azucarPorLitro;
     }
 
-
-    /*Metodos get y set */
     public int getAzucarPorLitro() {
         return azucarPorLitro;
     }
@@ -19,7 +15,7 @@ public class BebidaSinAlcohol extends Bebida {
     public void setAzucarPorLitro(int azucarPorLitro) {
         this.azucarPorLitro = azucarPorLitro;
     }
-    /* Metodos de comportamiento */
+
     @Override
     public double calcularPrecio() {
         int precio;
@@ -33,15 +29,14 @@ public class BebidaSinAlcohol extends Bebida {
 
     @Override
     public String obtenerDetalle() {
-        String respuestaDetalle;
-        respuestaDetalle = "Tipos de Bebidas No alcoholicas | Nombre: "+getNombre() +
-                "|Volumen: " + getVolumenMl() + "| Stock:" + getStock() + "| Azucar por litro: "+ this.azucarPorLitro +  "Valor: " + this.calcularPrecio()  ;
-        return respuestaDetalle;
-    } /* Como imprimir boleanos ? */
-
+        return "Tipo: Bebida Sin Alcohol | Nombre: " + getNombre()
+                + " | Volumen: " + getVolumenMl() + " ml"
+                + " | Stock: " + getStock()
+                + " | Azúcar: " + azucarPorLitro + " g/L"
+                + " | Precio: $" + (int) calcularPrecio();
+    }
     @Override
-    public String toString(){
+    public  String toString(){
         return  super.toString();
-
     }
 }

@@ -1,16 +1,14 @@
 package cl.dsy1102.fonda;
 
 public abstract class Bebida {
-    protected String nombre;
-    protected int volumenMl;
-    protected int stock;
+    private String nombre;
+    private int volumenMl;
+    private int stock;
 
-
-    public Bebida(String nombre, int volumenMl, int stock){
+    public Bebida(String nombre, int volumenMl, int stock) {
         this.nombre = nombre;
         this.volumenMl = volumenMl;
         this.stock = stock;
-
     }
 
     public String getNombre() {
@@ -18,14 +16,10 @@ public abstract class Bebida {
     }
 
     public void setNombre(String nombre) throws  IllegalArgumentException {
-
-
-        if (nombre == null || nombre.isBlank() ){
-            throw  new IllegalArgumentException("EL nombre no puede quedar en blanco ni vacio");
-        }else {
-            this.nombre = nombre;
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
-
+        this.nombre = nombre;
     }
 
     public int getVolumenMl() {
@@ -33,12 +27,10 @@ public abstract class Bebida {
     }
 
     public void setVolumenMl(int volumenMl) throws  IllegalArgumentException {
-        if ((volumenMl >= 100) && (volumenMl <= 3000)) {
-            throw  new IllegalArgumentException("Solo puedes agregar un volumen entre 100 y 3000");
-
+        if (volumenMl < 100 || volumenMl > 3000) {
+            throw new IllegalArgumentException("El volumen debe estar entre 100 y 3000 ml");
         }
         this.volumenMl = volumenMl;
-
     }
 
     public int getStock() {
@@ -46,28 +38,18 @@ public abstract class Bebida {
     }
 
     public void setStock(int stock) throws  IllegalArgumentException {
-        if (stock < 0) {
-            throw  new IllegalArgumentException("Debes agregar un numero mayor a 0");
-
+        if (stock <= 0) {
+            throw new IllegalArgumentException("El stock debe ser mayor que cero");
         }
-            this.stock = stock;
-
-
+        this.stock = stock;
     }
 
     public abstract double calcularPrecio();
 
-
     public abstract String obtenerDetalle();
 
-
-    public String toString(){
-        String respuesta =  super.toString();
-        respuesta = respuesta + "Nombre: " + this.nombre + "Volumen:" + this.volumenMl;
-        return  (respuesta);
-
-
-
-
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + " | Volumen: " + volumenMl + " ml";
     }
 }

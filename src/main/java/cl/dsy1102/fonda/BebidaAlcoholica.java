@@ -1,33 +1,35 @@
 package cl.dsy1102.fonda;
 
-public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
-    private static final int cantidadMaxima = 3;
+public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
+    public static final int LIMITE_UNIDADES_POR_CLIENTE = 3;
+
     private double gradosAlcohol;
     private boolean certificada;
-    private  boolean ventaRestringida;
+    private boolean ventaRestringida;
 
-    public BebidaAlcoholica(String nombre, int volumenMl, int stock, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
-        super(nombre, volumenMl,stock);
+    public BebidaAlcoholica(String nombre, int volumenMl, int stock,
+                            double gradosAlcohol, boolean certificada) {
+        this(nombre, volumenMl, stock, gradosAlcohol, certificada, false);
+    }
 
+    public BebidaAlcoholica(String nombre, int volumenMl, int stock,
+                            double gradosAlcohol, boolean certificada,
+                            boolean ventaRestringida) {
+        super(nombre, volumenMl, stock);
         this.gradosAlcohol = gradosAlcohol;
         this.certificada = certificada;
         this.ventaRestringida = ventaRestringida;
-
     }
 
     public double getGradosAlcohol() {
         return gradosAlcohol;
     }
 
-    public void setGradosAlcohol(double gradosAlcohol) {
+    public void setGradosAlcohol(double gradosAlcohol) throws  IllegalArgumentException {
         if (gradosAlcohol < 0.5 || gradosAlcohol > 45) {
-            throw  new IllegalArgumentException("Solo puedes agregar 0.5 hasta 45 grados de alcohol");
-
+            throw new IllegalArgumentException("Los grados deben estar entre 0.5 y 45");
         }
-
         this.gradosAlcohol = gradosAlcohol;
-
-
     }
 
     public boolean isVentaRestringida() {
@@ -46,55 +48,38 @@ public class BebidaAlcoholica extends Bebida implements  ConsumoResponsable {
         this.certificada = certificada;
     }
 
-
     @Override
     public boolean tieneVentaRestringida() {
-
         return ventaRestringida;
     }
+    @Override
+    public String toString(){
+        return  super.toString();}
 
     @Override
     public void restringirVenta() {
-        this.ventaRestringida = true;
-        System.out.println("Restriccion actualizada");
-        /*Llamar al método setVentaRestringida? */
-
-
-
+        setVentaRestringida(true);
     }
+
     @Override
     public double calcularPrecio() {
-        int precio;
-
-        if (this.certificada ){
-            precio = 3500;
-        }else {
-            precio = (int) (3500*1.2);}
-        return precio;
+        return certificada ? 3500 : 4200;
     }
-
 
     @Override
     public String obtenerDetalle() {
-        String respuestaDetalle;
-                respuestaDetalle=
-                "Tipos de Bebidas Alcoholicas | Nombre: "+getNombre() +
-                "|Volumen: " + getVolumenMl() + "| Stock:" + getStock() +
-                        "| Grados de Alcohol: °"+ this.gradosAlcohol +
-                "| Certificada: " + this.certificada + "|Venta Restringida: " + this.ventaRestringida
-        +  " Precio: " +  this.calcularPrecio() ;
-        return respuestaDetalle;
+        return "Tipo: Bebida Alcoholica | Nombre: " + getNombre()
+                + " | Volumen: " + getVolumenMl() + " ml"
+                + " | Stock: " + getStock()
+                + " | Grados: " + gradosAlcohol
+                + " | Certificada: " + (certificada ? "Si" : "No")
+                + " | Venta restringida: " + (ventaRestringida ? "Si" : "No")
+                + " | Precio: $" + (int) calcularPrecio();
     }
 
-    @Override
-    public String toString(){
-        return  super.toString();
-
-    }
     @Override
     public boolean superaLimite(int unidades) {
-        return  (unidades > cantidadMaxima) && (unidades > stock);
-
-
+        return unidades > LIMITE_UNIDADES_POR_CLIENTE;
     }
+
 }
