@@ -22,7 +22,7 @@ public class BebidaSinAlcohol extends Bebida {
         double precio;
 
         if (azucarPorLitro > 80){
-            precio = (int) (2000*1.10);
+            precio = (int) (2000*1.1);
             return precio;
         }
         precio = 2000;
@@ -34,11 +34,8 @@ public class BebidaSinAlcohol extends Bebida {
         return "Tipo: Bebida Sin Alcohol | Nombre: " + getNombre()
                 + " | Volumen: " + getVolumenMl() + " ml"
                 + " | Stock: " + getStock()
-                + " | Azúcar: " + azucarPorLitro + " g/L"
+                + " | Azúcar: " + getAzucarPorLitro() + " g/L"
                 + " | Precio: $" + (int) calcularPrecio();
     }
-    @Override
-    public  String toString(){
-        return  super.toString();
-    }
+
 }

@@ -1,16 +1,18 @@
 package cl.dsy1102.fonda;
-
+// Clase
 public abstract class Bebida {
-    private String nombre;
-    private int volumenMl;
-    private int stock;
-
+    //Atributo de Identificacion
+    protected String nombre;
+    protected int volumenMl;
+    //Atributos de Estado
+    protected int stock;
+//Constructor
     public Bebida(String nombre, int volumenMl, int stock) {
         this.nombre = nombre;
         this.volumenMl = volumenMl;
         this.stock = stock;
     }
-
+//Getter y Setters
     public String getNombre() {
         return nombre;
     }
@@ -48,7 +50,7 @@ public abstract class Bebida {
 
     public abstract String obtenerDetalle();
 
-    @Override
+
     public String toString() {
         return "Nombre: " + nombre + " | Volumen: " + volumenMl + " ml";
     }

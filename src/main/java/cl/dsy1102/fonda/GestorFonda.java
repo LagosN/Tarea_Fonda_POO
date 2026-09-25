@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorFonda {
+    /* Creo una lista para permitir instanciar las bebidas agregadas en main */
     private final List<Bebida> bebidas = new ArrayList<>();
 
     public GestorFonda() {
     }
-
+    /* Al tener la lista creada podemos ver que se agregan todas las bebidas mediante .add*/
     public GestorFonda(List<Bebida> bebidas) {
         if (bebidas != null) {
             for (Bebida bebida:bebidas){
@@ -16,7 +17,7 @@ public class GestorFonda {
             }
         }
     }
-
+    /*  */
     public void agregarBebida(Bebida bebida) {
         if (bebida == null ) {
             throw new IllegalArgumentException("La bebida no puede ser nula");
